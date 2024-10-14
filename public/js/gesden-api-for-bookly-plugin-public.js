@@ -29,4 +29,34 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	jQuery(function($) {
+		// Initialize the datepicker
+		$("#gesden-calendar").datepicker({
+			onSelect: function(dateText) {
+				// Show loading message while the AJAX call is made
+				$('#gesden-time-slot').html("Loading...");
+				// When a date is selected, trigger an AJAX call to the server
+				$.ajax({
+					url: ajaxurl, // WordPress AJAX URL
+					type: "POST",
+					data: {
+						action: 'fetch_api_response', // Custom action for the AJAX request
+						selected_date: dateText // Send the selected date to the server
+					},
+					success: function(free_slot) {
+						// Show the response in the #gesden-time-slot Id
+						$('#gesden-time-slot').html(free_slot);
+					},
+					error: function(xhr, status, error) {
+						// Handle errors if the request fails
+						alert("An error occurred: " + error);
+					}
+				});
+			}
+		});
+	});
+	
+
 })( jQuery );
+
+

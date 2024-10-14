@@ -64,6 +64,10 @@ register_deactivation_hook( __FILE__, 'deactivate_gesden_api_for_bookly_plugin' 
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-gesden-api-for-bookly-plugin.php';
 
+
+// include fetch-api-response.php file
+require plugin_dir_path( __FILE__ ) . '/admin/fetch-api-response.php';
+
 /**
  * Begins execution of the plugin.
  *

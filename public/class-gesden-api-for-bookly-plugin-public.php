@@ -75,6 +75,9 @@ class Gesden_Api_For_Bookly_Plugin_Public {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/gesden-api-for-bookly-plugin-public.css', array(), $this->version, 'all' );
 
+		// include jquery-ui stylesheet link
+		wp_enqueue_style( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
+
 	}
 
 	/**
@@ -97,6 +100,12 @@ class Gesden_Api_For_Bookly_Plugin_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/gesden-api-for-bookly-plugin-public.js', array( 'jquery' ), $this->version, false );
+
+		// Include jquery script file link 
+		wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js' );
+
+		// Include jquery-ui script file link
+		wp_enqueue_script( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' );
 
 	}
 
