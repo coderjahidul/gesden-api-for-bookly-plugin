@@ -68,6 +68,18 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-gesden-api-for-bookly-plug
 // include fetch-api-response.php file
 require plugin_dir_path( __FILE__ ) . '/admin/fetch-api-response.php';
 
+// include custom function file
+require plugin_dir_path( __FILE__ ) . '/admin/custom-function.php';
+
+// enqueue scripts
+
+add_action( 'wp_enqueue_scripts', 'gesden_api_for_bookly_plugin_scripts' );
+
+function gesden_api_for_bookly_plugin_scripts() {
+	wp_enqueue_script( 'custom-js', plugin_dir_url( __FILE__ ) . '/admin/js/custom.js', array( 'jquery' ), '1.0.0', true );
+}
+
+
 /**
  * Begins execution of the plugin.
  *
