@@ -26,7 +26,10 @@
                     selected_time: slotTime // Send the selected time
                 },
                 success: function(response) {
-                    location.reload();
+                    // Redirect to the specified URL after 3 seconds
+                    setTimeout(function() {
+                        window.location.href = "https://clinicamarianasacotonavia.com/formulario-enviado/";
+                    }, 3000); // Redirect after 3 seconds
                 },
                 error: function(xhr, status, error) {
                     // Handle errors if the AJAX request fails
